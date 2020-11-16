@@ -1,0 +1,43 @@
+测试功能：
+有道笔记的新建笔记功能测试
+
+环境准备：
+anaconda3.7，nodejsv12.13.1（appium解释器），npm6.12.1(node包管理工具),jdk1.8.0_261，
+Appium v1.18.3，夜神模拟器（模拟安卓环境）内置环境android 7.1.2，
+
+测试目标：
+youdaonote_android_6.7.18_youdaoweb.apk
+
+测试环境：
+Appium-Python-Client               1.0.2
+pytest                             	　5.2.1
+
+测试流程：
+python脚本调用appium对夜神模拟器中安装的有道笔记进行输入测试
+
+主体文件：
+appium_autotest
+
+文件结构：
+appium_autotest
+	.idea
+	page #测试准备文件
+		__init__.py
+		base_page.py#公共部分，包括：与模拟器建立连接，点击部分，写入信息部分，左滑部分
+		locators.py#元素定位，包括：同意的id值，广告标签，更新提示的id值
+		note_operate.py#主体功能（动作）部分：目前只有添加文本信息，包括：点击新建点击，输入标题，点击到正文部分
+		ok_page.py#无关点击部分，包括：点击同意标签，点击关闭广告标签，取消更新标签
+	
+	test_case
+		.pytest_cache
+		__init__.py
+		conftest.py＃驱动信息包，连接信息
+		test_add_node.py　＊＊＊＊＊主体运行部分，测试部分
+		youdaonote_android_6.7.18_youdaoweb.apk　＃测试软件包
+	
+	test#原始测试脚本文件
+		.pytest_cache
+		__init__.py#
+		test_first_Demo.py#尝试连接
+		test_first_note.py#查找元素信息
+		test_first_youdao.py#超级计算器测试
